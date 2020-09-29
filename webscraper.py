@@ -5,7 +5,7 @@ from datetime import date
 def get_current_date() -> date:
     """Gets the most recent date for Spotify's Global Top 200 and returns it as a Date object"""  
     current_date = date.today()
-    current_date = current_date.replace(day = current_date.day-1)
+    current_date = current_date.replace(day = current_date.day-2)
     return current_date
 
 def form_url(date:str) -> str:
@@ -54,6 +54,3 @@ def create_url_and_get_content():
     URL = form_url(today)
     content = get_content(URL)
     return content
-
-
-
