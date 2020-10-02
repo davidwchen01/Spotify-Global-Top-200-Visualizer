@@ -9,7 +9,7 @@ MAX_NUMBER_OF_STREAMS = 200
 
 
 def bar_graph(stream_filter:int):
-    "Returns a graph object resembling a bar graph"
+    "Returns a bar graph"
     indices = numpy.arange(50)
     width = 0.50
     stream_results = webscraper.get_stream_results()[:stream_filter]

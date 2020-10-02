@@ -5,9 +5,10 @@ import webscraper
 
 
 def ask_for_filter() -> int:
+    "Asks the user for a specified number of tracks to filter for"
     num_of_streams = 0
     while True:
-        num_of_streams = input("Please input the number of streams to filter for or type default: ")
+        num_of_streams = input("Please input the number of tracks to filter for or type default: ")
         try:
             if num_of_streams == 'default':
                 return 200
@@ -20,6 +21,7 @@ def ask_for_filter() -> int:
             print("Input was not convertible to an integer")
 
 def ask_for_type_of_graph() -> str:
+    "Asks the user for a specified graph to visualize the data"
     valid_inputs = {1:"bar_graph",2:"scatterplot"}
     while True:
         try:
@@ -32,6 +34,7 @@ def ask_for_type_of_graph() -> str:
             print("Input was not convertible to an integer")
         
 def get_graph(graph:str,filter:int):
+    "Retrieves the graph object"
     if graph == "bar_graph":
         graph = graphs.bar_graph(filter)
     elif graph == "scatterplot":
@@ -40,6 +43,7 @@ def get_graph(graph:str,filter:int):
 
 
 def create_labels(filter:int):
+    "Creates labels for the user interface"
     return webscraper.combine_results(webscraper.get_title_results(),webscraper.get_stream_results())[:filter]
 
 def main():
